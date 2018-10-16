@@ -1,12 +1,21 @@
-
+//NormalParticle marisa = new NormalParticle();
+NormalParticle [] marisa;
 void setup()
 {
 	size(500, 500);
   background(0);
+  marisa = new NormalParticle [1000];
+   for (int i = 0; i < marisa.length; i++)
+   marisa [i] = new NormalParticle();
 }
 void draw()
 {
-	//your code here
+   for (int i = 0; i < marisa.length; i++)
+ {
+   //fadingBackground();
+   marisa[i].move();
+   marisa[i].show();
+ }
 }
 class NormalParticle
 {
@@ -15,21 +24,30 @@ class NormalParticle
   NormalParticle()
   {
     myX = myY = 250;
-    myAngle = 45;
-    mySpeed = 20;
+    myAngle = Math.random()*2*Math.PI;
+    mySpeed = Math.random()*10;
     myColor = color(255);
   }
   
+  void move()
+  {
+    myX = myX + Math.cos(myAngle) * mySpeed;
+    myY = myY + Math.sin(myAngle) * mySpeed;
+  }
+  void show()
+  {
+    noStroke();
+    fill(myColor);
+    ellipse((float) myX, (float) myY, 5, 5);
+  }
+
 }
-void move()
+void fadingBackground()
 {
-  //myX = myX + Math.cos(myAngle) * mySpeed;
-  //myY = myY + Math.sin(myAngle) * mySpeed;
-}
-void show()
-{
-  //fill(myColor);
-  //ellipse(myX, myY, 10, 10);
+  fill(0, 0, 0, 10);
+  strokeWeight(0);
+  rect(0, 0, 500, 500);
+  loop();
 }
 interface Particle
 {
