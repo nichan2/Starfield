@@ -10,14 +10,22 @@ void setup()
 }
 void draw()
 {
+  background(0);
+  fadingBackground();
    for (int i = 0; i < marisa.length; i++)
  {
-   //fadingBackground();
    marisa[i].move();
    marisa[i].show();
  }
 }
-class NormalParticle
+
+//void mousePressed()
+//{
+//  redraw();
+//}
+
+
+class NormalParticle implements Particle
 {
 	double myX, myY, mySpeed, myAngle;
   int myColor;
@@ -40,18 +48,20 @@ class NormalParticle
     fill(myColor);
     ellipse((float) myX, (float) myY, 5, 5);
   }
+  
 
 }
 void fadingBackground()
 {
-  fill(0, 0, 0, 10);
+  fill(0, 0, 0, 50);
   strokeWeight(0);
   rect(0, 0, 500, 500);
   loop();
 }
 interface Particle
 {
-	//your code here
+	public void show();
+  public void move();
 }
 class OddballParticle //uses an interface
 {
