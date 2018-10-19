@@ -3,16 +3,14 @@ Particle [] marisa;
 void setup()
 {
 	size(500, 500);
-  background(0);
   marisa = new Particle [1500];
    for (int i = 0; i < marisa.length; i++)
    marisa [i] = new NormalParticle();
-   //for (int i = 1; i < marisa.length; i++)
-   //marisa [i] = new OddballParticle();
+   //for (int i = 1; i < 2; i++)
+   marisa [1] = new OddballParticle();
 }
 void draw()
 {
-  background(0);
   fadingBackground();
    for (int i = 0; i < marisa.length; i++)
  {
