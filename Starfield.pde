@@ -4,10 +4,12 @@ void setup()
 {
 	size(500, 500);
   marisa = new Particle [1500];
-   for (int i = 0; i < marisa.length; i++)
-   marisa [i] = new NormalParticle();
-   //for (int i = 1; i < 2; i++)
-   marisa [1] = new OddballParticle();
+  for (int a = 1000; a < 1500; a++)
+  marisa [a] = new OddballParticle();
+  
+  for (int i = 0; i < 1000; i++)
+     marisa [i] = new NormalParticle();
+
 }
 void draw()
 {
@@ -72,7 +74,7 @@ class OddballParticle implements Particle
     myX = myY = 250;
     myAngle = Math.random()*2*Math.PI;
     mySpeed = (int) Math.random()*10;
-    myColor = color(#ABCFF5);
+    myColor = color(#64E5E4);
   }
   void move()
   {
@@ -83,7 +85,7 @@ class OddballParticle implements Particle
   {
     noStroke();
     fill(myColor);
-    ellipse((float) myX, (float) myY, 5, 5);
+    ellipse((float) myX, (float) myY, 10, 10);
   }
 }
 class JumboParticle //uses inheritance
