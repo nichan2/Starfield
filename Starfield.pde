@@ -1,5 +1,5 @@
 
-Particle[]projectile;
+Particle [] projectile;
 
 
 
@@ -10,13 +10,10 @@ void setup()
 {
 
 
-	size(800, 800);
+	size(500, 500);
 
 
- projectile = new Particle [150];
-
-
-
+ projectile = new Particle [1500];
 
 
 
@@ -25,10 +22,13 @@ void setup()
 
 
 
- for (int a = 1000; i < 1500; i++)
 
 
- projectile [i] = new OddballParticle();
+
+ for (int j = 1000; j < 1500; j++)
+
+
+ projectile [j] = new OddballParticle();
 
 
 
@@ -85,10 +85,10 @@ class NormalParticle implements Particle
 {
 
 
-	double myX, myY, mySpeed, myAngle;
+	double myX, myY, spd, Ang;
 
 
- int myColor;
+ int clr;
 
 
  NormalParticle()
@@ -97,16 +97,16 @@ class NormalParticle implements Particle
  {
 
 
-   myX = myY = 255;
+   myX = myY = 250;
 
 
-   myAngle = Math.random()*2*Math.PI;
+   Ang = Math.random()*2*Math.PI;
 
 
-   mySpeed = Math.random()*9;
+   spd = Math.random()*10;
 
 
-   myColor = color(255);
+   clr = color(255);
 
 
  }
@@ -122,10 +122,10 @@ class NormalParticle implements Particle
  {
 
 
-   myX = myX + Math.cos(myAngle) * mySpeed;
+   myX = myX + Math.cos(Ang) * spd;
 
 
-   myY = myY + Math.sin(myAngle) * mySpeed;
+   myY = myY + Math.sin(Ang) * spd;
 
 
  }
@@ -140,10 +140,10 @@ class NormalParticle implements Particle
    noStroke();
 
 
-   fill(myColor);
+   fill(clr);
 
 
-   ellipse((float) myX, (float) myY,7, 7);
+   ellipse((float) myX, (float) myY, 5, 5);
 
 
  }
@@ -161,19 +161,19 @@ class NormalParticle implements Particle
 }
 
 
-void Background()
+void fadingBackground()
 
 
 {
 
 
- fill(200, 162, 200);
+ fill(0, 0, 0, 0);
 
 
  strokeWeight(0);
 
 
- rect(0, 0, 450, 450);
+ rect(0, 0, 500, 500);
 
 
  loop();
@@ -212,13 +212,13 @@ class OddballParticle extends NormalParticle implements Particle
    myX = myY = 250;
 
 
-   myAngle = Math.random()*2*Math.PI;
+   Ang = Math.random()*2*Math.PI;
 
 
-   mySpeed = (int) (Math.random()*9)+3;
+   spd = (int) (Math.random()*10)+3;
 
 
-   myColor = color(#FFB6C1);
+   clr = color(#C8A2C8);
 
 
  }
@@ -230,10 +230,10 @@ class OddballParticle extends NormalParticle implements Particle
  {
 
 
-   myX = myX + Math.cos(myAngle) * mySpeed;
+   myX = myX + Math.cos(Ang) * spd;
 
 
-   myY = myY + Math.sin(myAngle) * mySpeed;
+   myY = myY + Math.sin(Ang) * spd;
 
 
  }
@@ -248,10 +248,10 @@ class OddballParticle extends NormalParticle implements Particle
    noStroke();
 
 
-   fill(myColor);
+   fill(clr);
 
 
-   ellipse((float) myX, (float) myY, 3, 3);
+   ellipse((float) myX, (float) myY, 2, 2);
 
 
  }
@@ -275,13 +275,13 @@ class JumboParticle extends NormalParticle implements Particle
    myX = myY = 250;
 
 
-   myAngle = Math.random()*2*Math.PI;
+   Ang = Math.random()*2*Math.PI;
 
 
-   mySpeed = (int) (Math.random()*10)+1;
+   spd = (int) (Math.random()*10)+1;
 
 
-   myColor = color(#F7CAC9);
+   clr = color(#FFB6C1);
 
 
  }
@@ -293,10 +293,10 @@ class JumboParticle extends NormalParticle implements Particle
  {
 
 
-   myX = myX + Math.cos(myAngle) * mySpeed;
+   myX = myX + Math.cos(Ang) * spd;
 
 
-   myY = myY + Math.sin(myAngle) * mySpeed;
+   myY = myY + Math.sin(Ang) * spd;
 
 
  }
@@ -311,10 +311,10 @@ class JumboParticle extends NormalParticle implements Particle
    noStroke();
 
 
-   fill(myColor);
+   fill(clr);
 
 
-   ellipse((float) myX, (float) myY, 9, 9);
+   ellipse((float) myX, (float) myY, 10, 10);
 
 
  }
